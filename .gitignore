@@ -1,0 +1,14 @@
+# Ensure .gitignore has these exact lines
+@"
+# Firebase Service Account Keys
+src/main/resources/ServiceAccountKey.json
+**/ServiceAccountKey.json
+target/
+*.p12
+*.pem
+
+# Build outputs
+target/
+*.class
+*.log
+"@ | Out-File -FilePath .gitignore -Encoding utf8 -Append
