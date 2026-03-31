@@ -1,28 +1,11 @@
-# Dockerfile
-FROM openjdk:17-jdk-slim
-
-# Set working directory
+FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
-
-# Copy maven wrapper and pom.xml
 COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
-
-# Make mvnw executable
 RUN chmod +x mvnw
-
-# Download dependencies
-RUN ./mvnw dependency:go-offline -B
-
-# Copy source code
+# Skip dependency:go-offline and build directly
 COPY src src
-
-# Build the application
-RUN ./mvnw package -DskipTests
-
-# Expose port
+RUN ./mvnw clean package -DskipTests
 EXPOSE 8080
-
-# Run the application
 CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
