@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: spring-boot-firebase-api
+    runtime: java
+    repo: https://github.com/YOUR_USERNAME/YOUR_REPO_NAME
+    plan: free
+    buildCommand: ./mvnw clean install
+    startCommand: java -jar target/demo-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: FIREBASE_CREDENTIALS_BASE64
+        sync: false
+      - key: PORT
+        value: 8080
