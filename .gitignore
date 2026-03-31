@@ -1,14 +1,32 @@
-# Ensure .gitignore has these exact lines
-@"
-# Firebase Service Account Keys
-src/main/resources/ServiceAccountKey.json
-**/ServiceAccountKey.json
-target/
-*.p12
-*.pem
-
-# Build outputs
+# Compiled files
 target/
 *.class
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+.sts4-cache
+
+# Logs
 *.log
-"@ | Out-File -FilePath .gitignore -Encoding utf8 -Append
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Firebase credentials - IMPORTANT!
+src/main/resources/ServiceAccountKey.json
+**/ServiceAccountKey.json
+*.p12
+*.pem
+*.key
+
+# Docker
+.dockerignore
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
