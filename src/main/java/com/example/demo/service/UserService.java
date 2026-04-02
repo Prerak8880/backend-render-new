@@ -1,9 +1,10 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.LoginRequest;
-import com.example.demo.dto.UserRequest;
+import com.example.demo.dto.CreateUserRequest;
 import com.example.demo.usermodel.User;
 import com.google.api.core.ApiFuture;
+import com.google.api.services.storage.Storage.Projects.HmacKeys.Create;
 import com.google.cloud.firestore.*;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserRecord;
@@ -19,7 +20,7 @@ public class UserService {
 
     private static final String COLLECTION_NAME = "users";
 
-    public String createUser(UserRequest request) throws Exception {
+    public String createUser(CreateUserRequest request) throws Exception {
         UserRecord.CreateRequest createRequest = new UserRecord.CreateRequest()
                 .setEmail(request.getEmail())
                 .setPassword(request.getPassword());

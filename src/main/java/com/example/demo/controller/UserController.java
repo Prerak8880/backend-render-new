@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.UserRequest;
+import com.example.demo.dto.CreateUserRequest;
 import com.example.demo.usermodel.User;
 import com.example.demo.service.UserService;
 
@@ -17,7 +17,7 @@ public class UserController {
     UserService service;
 
     @PostMapping
-    public String createUser(@RequestBody UserRequest request) throws Exception{
+    public String createUser(@RequestBody CreateUserRequest request) throws Exception{
         return service.createUser(request);
     }
 
