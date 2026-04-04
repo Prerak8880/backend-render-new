@@ -10,4 +10,5 @@ public class runner {
         SpringApplication.run(runner.class, args);
     }
 
+    // [Convert]::ToBase64String([IO.File]::ReadAllBytes("ServiceAccountKey.json")) > output.txt
 }
